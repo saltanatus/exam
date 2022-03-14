@@ -1,0 +1,14 @@
+<form method="POST" action=".">
+    {% csrf_token %}
+    <h2>Обновление</h2>
+        <input value="{{ single_resource.label }}" type="text" name="label">
+        <input value="{{ single_resource.last_number }}" type="number" name="last_number">
+        <input value="{{ single_resource.initial_cost }}" type="text" name="initial_cost">
+        <input value="{{ single_resource.residual_cost }}" type="text" name="residual_cost">
+        <select name="category">
+            {% for category in category %}
+            <option value="{{category.id}}">{{category.name}}</option>
+            {% endfor %}
+        </select>
+    <button type="submit">Обновить</button>
+</form>
